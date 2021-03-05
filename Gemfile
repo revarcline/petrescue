@@ -5,7 +5,7 @@ ruby '2.7.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'bcrypt', '~> 3.1.7'
-# gem 'bootsnap', '>= 1.4.4', require: false
+gem 'bootsnap', '>= 1.4.4', require: false
 gem 'dotenv-rails', groups: %i[development test]
 gem 'image_processing', '~> 1.2'
 gem 'jbuilder', '~> 2.7'
