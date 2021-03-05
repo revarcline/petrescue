@@ -1,6 +1,6 @@
 planning!
 
-deploy to heroku
+deploy to heroku ✔
 use webpack
 use devise
 google oauth?
