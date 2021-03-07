@@ -16,3 +16,13 @@
 </ul>
 
 <p><%= @pet.description %></p>
+<% if current_user.admin %>
+  <p>
+    <%= link_to "Edit pet", edit_pet_path(@pet) %>
+  </p>
+<% end %>
+<p>
+  <script>
+    document.write('<a href="' + document.referrer + '">Back</a>');
+  </script>
+</p>
