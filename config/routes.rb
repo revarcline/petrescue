@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :pets
   root 'static#index'
+  get 'only/:species/', to: 'pets#index', as: 'species_index'
 end

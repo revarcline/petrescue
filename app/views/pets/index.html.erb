@@ -1,0 +1,11 @@
+<% if params[:species] %>
+  <h1>All <% params[:species].capitalize %></h1>
+<% else %>
+  <h1>All Pets</h1>
+<% end %>
+
+<div class="center">
+  <% @pets.each do |pet| %>
+    <div class="petentry"><%= link_to pet.name, pet_path(pet) %></div>
+  <% end %>
+</div>
