@@ -1,3 +1,8 @@
 <h1>Adopt a pet!</h1>
 <p>They're pretty cute</p>
-<h2><%= link_to "All pets", pets_path %></h2>
+<h2><%= link_to "All Pets", pets_path %></h2>
+<% Pet.distinct.pluck(:species).each do |species| %>
+  <h2>
+    <%= link_to "All #{species.pluralize}", species_index_path(species.downcase.pluralize) %>
+  </h2>
+<% end %>

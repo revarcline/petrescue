@@ -1,11 +1,15 @@
 <% if params[:species] %>
-  <h1>All <% params[:species].capitalize %></h1>
+  <h1>All <%= params[:species].capitalize %></h1>
 <% else %>
   <h1>All Pets</h1>
 <% end %>
 
 <div class="center">
-  <% @pets.each do |pet| %>
-    <div class="petentry"><%= link_to pet.name, pet_path(pet) %></div>
+  <% if @pets.any? %>
+    <% @pets.each do |pet| %>
+      <div class="petentry"><%= link_to pet.name, pet_path(pet) %></div>
+    <% end %>
+  <% else %>
+    <h2>Looks like we don't have any <%= params[:species] %> up for adoption!</h2>
   <% end %>
-</div>
+  </div>
