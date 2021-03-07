@@ -16,7 +16,7 @@
           <ul class="navbar-nav ml-auto">
             <% if current_user %>
             <li class="nav-item">
-              <%= link_to current_user.name, "#", class:"nav-link" %>
+              <%= link_to current_user.full_name, user_path(current_user), class:"nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to "Account Settings", edit_user_registration_path, class:"nav-link" %>

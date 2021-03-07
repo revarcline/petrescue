@@ -88,16 +88,16 @@ chester = Pet.create(
 )
 
 guest = User.create(
-  name: 'petseeker',
-  fullname: 'Pet Seeker',
+  username: 'petseeker',
+  full_name: 'Pet Seeker',
   password: 'wannapet',
   email: 'petseeker@example.com',
   phone: '5555555555'
 )
 
 admin = User.create(
-  name: 'shelteradmin',
-  fullname: 'Shelter Admin',
+  username: 'shelteradmin',
+  full_name: 'Shelter Admin',
   password: 'gottapet',
   email: 'shelteradmin@example.com',
   phone: '5555555555',
