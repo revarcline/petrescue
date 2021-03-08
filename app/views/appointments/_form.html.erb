@@ -1,0 +1,6 @@
+<%= simple_form_for @appointment do |f| %>
+  <%= f.input :user_id, as: :hidden, value: @user.id %>
+  <%= f.input :pet_id, as: :hidden, value: @pet.id %>
+  <%= f.input :start, minute_step: 30, label: "Appointment Time" %>
+  <%= f.submit %>
+<% end %>
