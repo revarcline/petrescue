@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
-  resources :pets
+  resources :pets do
+    resources :appointments, only: :new
+  end
   resources :users, only: %i[show index]
   root 'static#index'
   get '/:species/', to: 'pets#index', as: 'species_index'

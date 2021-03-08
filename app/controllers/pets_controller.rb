@@ -10,6 +10,10 @@ class PetsController < ApplicationController
   def show
     set_pet
   end
+
+  def new
+    @pet = Pet.new
+  end
   
   private
 
