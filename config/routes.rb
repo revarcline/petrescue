@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :appointments
+  resources :appointments, only: %i[show edit create edit update delete]
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }

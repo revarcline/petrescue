@@ -21,3 +21,6 @@
     <%= link_to "Edit pet", edit_pet_path(@pet) %>
   </p>
 <% end %>
+<% if current_user %>
+  <%= link_to "Schedule an appointment", new_pet_appointment_path(@pet) %>
+<% end %>
