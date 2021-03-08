@@ -1,4 +1,12 @@
 <%= simple_form_for @pet do |f| %>
   <%= f.input :name %>
   <%= f.input :species %>
+  <%= f.input :birthdate, as: :date %>
+  <%= f.input :breed %>
+  <%= f.input :color %>
+  <%= f.input :sex, collection: [ 'Male', 'Female' ] %>
+  <%= f.input :weight, label: 'Weight (in pounds)', input_html: { min: '0', step: 'any' } %>
+  <%= f.input :kid_friendly %>
+  <%= f.input :solo_pet %>
+  <%= f.submit %>
 <% end %>

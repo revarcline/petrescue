@@ -15,6 +15,10 @@ class PetsController < ApplicationController
     @pet = Pet.new
   end
   
+  def edit
+    set_pet
+  end
+  
   private
 
   def set_pet
