@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :appointments
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   resources :pets
   resources :users, only: %i[show index]
   root 'static#index'
