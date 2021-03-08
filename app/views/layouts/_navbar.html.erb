@@ -7,11 +7,16 @@
             <li class="nav-item">
               <%= link_to "Pets", pets_path, class:"nav-link" %>
             </li>
+            <li class="dropdown show nav-item">
+              <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">By Species<span class="caret"></span></a>
+              <ul class="dropdown-menu">
             <% Pet.distinct.pluck(:species).each do |species| %>
               <li>
                 <%= link_to species.pluralize, species_index_path(species.downcase.pluralize), class:"nav-link" %>
               </li>
             <% end %>
+              </ul>
+            </li>
           </ul>
           <ul class="navbar-nav ml-auto">
             <% if current_user %>

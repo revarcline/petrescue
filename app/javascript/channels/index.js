@@ -2,4 +2,4 @@
 // Channel files must be named *_channel.js.
 
 const channels = require.context('.', true, /_channel\.js$/)
-rhannels.keys().forEach(channels)
+channels.keys().forEach(channels)
