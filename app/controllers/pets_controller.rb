@@ -30,6 +30,15 @@ class PetsController < ApplicationController
   def edit
     set_pet
   end
+
+  def update
+    set_pet
+    if @pet.update(pet_params)
+      redirect_to pet_path(@pet)
+    else
+      render :edit
+    end
+  end
   
   private
 
