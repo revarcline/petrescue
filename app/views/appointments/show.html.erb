@@ -3,5 +3,7 @@
 <p>
   You're scheduled to meet <%= link_to @appointment.pet.name, pet_path(@appointment.pet)%> 
 <%= distance_of_time_in_words(DateTime.current, @appointment.start.time) %>
-from now, on 
+from now, on <%= @appointment.start.strftime('%A, %B %-d, %Y at %H:%M') %>.
 </p>
+<p>Please bring a form of government-issued identification if you are planning
+  to adopt <%= @appointment.pet.name %>.</p>
