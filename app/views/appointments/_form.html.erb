@@ -1,6 +1,4 @@
 <%= simple_form_for ([@pet, @appointment]) do |f| %>
-  <%= f.association :user, as: :hidden, value: current_user %>
-  <%= f.association :pet, as: :hidden, value: @pet %>
   <%= f.input :start,
     minute_step: 30,
     start_year: Date.current.year,

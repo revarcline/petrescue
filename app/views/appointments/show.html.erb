@@ -1,0 +1,7 @@
+<h1>Meeting <%= @appointment.pet.name %></h1>
+
+<p>
+  You're scheduled to meet <%= link_to @appointment.pet.name, pet_path(@appointment.pet)%> 
+<%= distance_of_time_in_words(DateTime.current, @appointment.start.time) %>
+from now, on 
+</p>

@@ -3,14 +3,17 @@ class AppointmentsController < ApplicationController
 
     def new
         @appointment = Appointment.new
-        @pet = Pet.find_by_id(params[:pet_id])
+        set_pet
     end
 
     def create
         @appointment = Appointment.new(appointment_params)
+        set_pet
+        @appointment.pet = @pet
+        @appointment.user = current_user
         if @appointment.valid?
             @appointment.save
-            redirect_to pet_appointment_path(@appointment)
+            redirect_to pet_appointment_path(@appointment.pet, @appointment)
         else
             redirect_to new_pet_appointment_path
         end
@@ -26,10 +29,14 @@ class AppointmentsController < ApplicationController
         @appointment = Appointment.find_by_id(params[:id])
     end
 
+    def set_pet
+        @pet = Pet.find_by_id(params[:pet_id])
+    end
+
     def appointment_params
         params.require(:appointment).permit(
-            :user,
-            :pet,
+            :user_id,
+            :pet_id,
             :start
         )
     end

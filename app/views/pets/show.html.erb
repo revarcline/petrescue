@@ -22,5 +22,5 @@
   </p>
 <% end %>
 <% if current_user %>
-  <%= link_to "Schedule an appointment", new_pet_appointment_path %>
+  <%= link_to "Schedule an appointment", new_pet_appointment_path(@pet) %>
 <% end %>
