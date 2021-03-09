@@ -1,6 +1,12 @@
-<%= simple_form_for @appointment do |f| %>
+<%= simple_form_for ([@pet, @appointment]) do |f| %>
   <%= f.input :user_id, as: :hidden, value: @user.id %>
   <%= f.input :pet_id, as: :hidden, value: @pet.id %>
-  <%= f.input :start, minute_step: 30, label: "Appointment Time" %>
+  <%= f.input :start,
+    minute_step: 30,
+    start_year: Date.current.year,
+    end_year: 6.months.from_now.year,
+    start_hour: 9,
+    end_hour: 16,
+    label: "Appointment Time" %>
   <%= f.submit %>
 <% end %>

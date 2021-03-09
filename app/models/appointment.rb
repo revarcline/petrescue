@@ -2,13 +2,14 @@ class Appointment < ApplicationRecord
   belongs_to :user
   belongs_to :pet
 
-  validate :six_months_from_now
+  validate :date_six_months_from_now
+  validate :time_within_business_hours
 
   private
 
-  def six_months_from_now
+  def date_six_months_from_now
     unless start.future? && start < Date.current + 6.months
-      errors.add(:start, "Appointment must be within next six months.")
+      errors.add(:start, "of appointment must be within next six months.")
     end
   end
 

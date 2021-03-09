@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  resources :appointments, only: %i[show edit create edit update delete]
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
   resources :pets do
-    resources :appointments, only: :new
+    resources :appointments, except: %i[index]
   end
   resources :users, only: %i[show index] do
     resources :appointments, only: %i[index]
