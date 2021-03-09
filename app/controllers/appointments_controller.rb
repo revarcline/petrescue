@@ -1,9 +1,14 @@
 class AppointmentsController < ApplicationController
     before_action :authenticate_user!
+    before_action :admin_only, only: :index
 
     def new
         @appointment = Appointment.new
         set_pet
+    end
+    
+    def index
+        @appointments = Appointment.all
     end
 
     def create

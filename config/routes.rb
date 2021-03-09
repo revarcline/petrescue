@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   resources :pets do
     resources :appointments, except: %i[index]
   end
-  resources :users, only: %i[show index] do
-    resources :appointments, only: %i[index]
-  end
+  resources :users, only: %i[show index]
+  resources :appointments, only: %i[index]
   root 'static#index'
   get '/:species/', to: 'pets#index', as: 'species_index'
 end
