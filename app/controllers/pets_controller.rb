@@ -57,6 +57,7 @@ class PetsController < ApplicationController
       :weight,
       :kid_friendly,
       :solo_pet,
+      :photo,
       :description
     )
   end

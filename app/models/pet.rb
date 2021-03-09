@@ -3,6 +3,8 @@ class Pet < ApplicationRecord
 
   has_many :appointments
   has_many :users, through: :appointments
+
+  has_one_attached :photo
   
   validates :name, presence: true
   validates :species, presence: true

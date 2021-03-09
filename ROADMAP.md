@@ -75,3 +75,6 @@ index view
 
 pets/:type
 pets indexed by type
+
+
+blog about oauth and devise and how it needs to be a put link after 2.0
