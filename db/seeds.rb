@@ -91,7 +91,6 @@ guest = User.create(
   full_name: 'Pet Seeker',
   password: 'wannapet',
   email: 'petseeker@example.com',
-  phone: '5555555555',
   admin: false
 )
 
@@ -99,6 +98,5 @@ admin = User.create(
   full_name: 'Shelter Admin',
   password: 'gottapet',
   email: 'shelteradmin@example.com',
-  phone: '5555555555',
   admin: true
 )
