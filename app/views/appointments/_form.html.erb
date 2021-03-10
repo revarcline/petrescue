@@ -1,5 +1,6 @@
 <%= simple_form_for ([@pet, @appointment]) do |f| %>
-  <%= f.input :start,
+
+  <%= f.input :timeslot,
     minute_step: 30,
     start_year: Date.current.year,
     end_year: 6.months.from_now.year,

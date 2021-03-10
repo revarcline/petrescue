@@ -3,7 +3,7 @@
   <div class="appointment_link">
     <%= link_to appointment.user.full_name, user_path(appointment.user) %> with
     <%= link_to appointment.pet.name, pet_path(appointment.pet) %>
-    at <%= link_to appointment.start.strftime('%H:%M on %A, %B %-d, %Y'),
+    at <%= link_to appointment.timeslot.strftime('%H:%M on %A, %B %-d, %Y'),
     pet_appointment_path(appointment.pet, appointment) %> 
   </div>
 <% end %>

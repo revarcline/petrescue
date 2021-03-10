@@ -7,7 +7,7 @@
     <% @user.appointments.upcoming.each do |appointment| %>
       <li>
         <%= link_to appointment.pet.name, pet_appointment_path(appointment.pet, appointment) %>
-        at <%= appointment.start.strftime('%H:%M on %A, %B %-d, %Y') %> 
+        at <%= appointment.timeslot.strftime('%H:%M on %A, %B %-d, %Y') %> 
       </li>
     <% end %>
   </ul>
@@ -16,7 +16,7 @@
 <% end %>
 
 <% if @user.pets.any? %>
-  <h3>Pets you've show interest in: </h3>
+  <h3>Pets you've shown interest in: </h3>
   <ul>
     <% @user.pets.each do |pet| %>
       <li><%= link_to pet.name, pet_path(pet) %></li>

@@ -16,11 +16,10 @@ class AppointmentsController < ApplicationController
         set_pet
         @appointment.pet = @pet
         @appointment.user = current_user
-        if @appointment.valid?
-            @appointment.save
+        if @appointment.save
             redirect_to pet_appointment_path(@appointment.pet, @appointment)
         else
-            redirect_to new_pet_appointment_path
+            render :new
         end
     end
 
@@ -39,6 +38,6 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
-        params.require(:appointment).permit(:start)
+        params.require(:appointment).permit(:timeslot)
     end
 end
