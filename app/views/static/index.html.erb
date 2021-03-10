@@ -1,5 +1,4 @@
-<h1>Adopt a pet!</h1>
-<p>They're pretty cute</p>
+<h1 class="jumbotron">Adopt a pet!</h1>
 <h2><%= link_to "All Pets", pets_path %></h2>
 <% Pet.distinct.pluck(:species).each do |species| %>
   <h2>

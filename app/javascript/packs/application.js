@@ -10,7 +10,12 @@ import "channels"
 import "bootstrap"
 import 'jquery'
 import 'popper.js'
+import { autosize } from 'autosize'
 
+document.addEventListener("turbolinks:load", () => {
+  $('[data-toggle="tooltip"]').tooltip()
+  $('[data-toggle="popover"]').popover()
+})
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
