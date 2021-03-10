@@ -1,5 +1,9 @@
 <h1>Meeting <%= @appointment.pet.name %></h1>
 
+<% if current_user.admin %>
+  <h3>User: <%= link_to @appointment.user.full_name, user_path(@appointment.user) %></h3>
+<% end %>
+
 <p>
   You're scheduled to meet <%= link_to @appointment.pet.name, pet_path(@appointment.pet)%> 
   on <%= @appointment.timeslot.strftime('%A, %B %-d, %Y at %H:%M') %>.
