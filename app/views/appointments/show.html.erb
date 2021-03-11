@@ -10,3 +10,7 @@
 </p>
 <p>Please bring a form of government-issued identification if you are planning
   to adopt <%= @appointment.pet.name %>.</p>
+
+<div class="delete_link">
+  <%= link_to "Delete appointment", appointment_path(@appointment), method: 'delete' %>
+</div>
