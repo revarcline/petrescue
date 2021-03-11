@@ -1,9 +1,22 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :admin_only, only: %i[index update]
+  before_action :admin_only, only: %i[index update admin_toggle destroy]
 
   def index
     @users = User.all
+  end
+
+  def admin_toggle
+    set_user
+    if @user == current_user
+      flash[:notice] = "Can't remove own admin status"
+    elsif @user&.admin?
+      @user.admin = false
+    elsif @user&.admin == false
+      @user.admin = true
+    end
+    @user.save
+    redirect_to users_path
   end
 
   def show
@@ -14,6 +27,11 @@ class UsersController < ApplicationController
       flash[:notice] = 'You are not allowed to see that page'
       redirect_to root_path
     end
+  end
+
+  def destroy
+    User.destroy(params[:id])
+    redirect_to users_path
   end
 
   private
