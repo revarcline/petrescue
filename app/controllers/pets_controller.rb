@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
   before_action :admin_only
-  skip_before_action :admin_only, only: %i[index show]
+  skip_before_action :admin_only, only: %i[index show destroy]
   def index
     if params[:species]
       @pets = Pet.where(species: params[:species].capitalize.singularize)
@@ -21,6 +21,7 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     if @pet.valid?
       @pet.save
+      params[:notice] = "Pet created successfully"
       redirect_to pet_path(@pet)
     else
       render :new
@@ -34,10 +35,17 @@ class PetsController < ApplicationController
   def update
     set_pet
     if @pet.update(pet_params)
+      params[:notice] = "Pet updated successfully"
       redirect_to pet_path(@pet)
     else
       render :edit
     end
+  end
+  
+  def destroy
+    Pet.destroy(params[:id])
+    params[:notice] = "Pet deleted successfully"
+    redirect_to pets_path
   end
   
   private

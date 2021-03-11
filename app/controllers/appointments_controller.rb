@@ -26,6 +26,15 @@ class AppointmentsController < ApplicationController
     def show
         set_appointment
     end
+
+    def destroy
+        set_appointment
+        if current_user == @appointment.user || current_user.admin
+        else
+            params[:notification] = "You are not allowed to delete that appointment"
+        end
+        redirect_to root
+    end
     
     private
 

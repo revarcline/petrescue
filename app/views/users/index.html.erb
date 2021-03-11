@@ -2,13 +2,14 @@
 
 <% @users.each do |user| %>
   <div class="user_link">
-    <%= link_to user.full_name, user_path(user) %>
+    <%= link_to user.full_name, user_path(user) %><br>
     <% if user.admin %>
-      <%= button_to 'Revoke admin', user_admin_toggle_path(user), method: 'patch' %>
+      <%= link_to 'Revoke admin', user_admin_toggle_path(user), method: 'patch' %>
     <% else %>
-      <%= button_to 'Set admin', user_admin_toggle_path(user), method: 'patch' %>
+      <%= link_to 'Set admin', user_admin_toggle_path(user), method: 'patch' %>
     <% end %>
-      <%= button_to 'Delete user', user_path(user), method: 'delete' %>
+      | <%= link_to 'Delete user', user_path(user), method: 'delete' %>
+    <br>
     <br>
   </div>
 <% end %>

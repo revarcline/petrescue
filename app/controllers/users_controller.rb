@@ -12,8 +12,10 @@ class UsersController < ApplicationController
       flash[:notice] = "Can't remove own admin status"
     elsif @user&.admin?
       @user.admin = false
+      flash[:notice] = "#{@user.full_name} is no longer an admin"
     elsif @user&.admin == false
       @user.admin = true
+      flash[:notice] = "#{@user.full_name} is now an admin"
     end
     @user.save
     redirect_to users_path
@@ -31,6 +33,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.destroy(params[:id])
+    flash[:notice] = "User deleted"
     redirect_to users_path
   end
 

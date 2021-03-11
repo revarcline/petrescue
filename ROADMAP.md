@@ -78,3 +78,6 @@ pets indexed by type
 
 
 blog about oauth and devise and how it needs to be a put link after 2.0
+
+
+dumb and simple idea: talk about making delete and single boolean toggle buttons
