@@ -4,6 +4,7 @@ class AppointmentsController < ApplicationController
 
   def new
     @appointment = Appointment.new
+    params[:notice] = 'Appointment created successfully'
     set_pet
   end
 
@@ -17,6 +18,7 @@ class AppointmentsController < ApplicationController
     @appointment.pet = @pet
     @appointment.user = current_user
     if @appointment.save
+      params[:notice] = 'Appointment set successfully'
       redirect_to pet_appointment_path(@appointment.pet, @appointment)
     else
       render :new
