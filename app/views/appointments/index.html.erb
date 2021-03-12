@@ -1,9 +1,14 @@
 <h1>All Appointments</h1>
 <% @appointments.each do |appointment| %>
   <div class="appointment_link">
-    <%= link_to appointment.user.full_name, user_path(appointment.user) %> with
-    <%= link_to appointment.pet.name, pet_path(appointment.pet) %>
-    at <%= link_to appointment.timeslot.strftime('%H:%M on %A, %B %-d, %Y'),
+    <% if appointment.user %>
+      <%= link_to appointment.user.full_name, user_path(appointment.user) %> with
+    <% end %>
+    <% if appointment.pet %>
+      <%= link_to appointment.pet.name, pet_path(appointment.pet) %> at
+    <% end %>
+    <%= link_to appointment.timeslot.strftime('%H:%M on %A, %B %-d, %Y'),
     pet_appointment_path(appointment.pet, appointment) %> 
+    | <%= link_to "Delete appointment", appointment_path(appointment), method: 'delete' %>
   </div>
 <% end %>

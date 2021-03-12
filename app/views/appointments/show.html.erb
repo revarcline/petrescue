@@ -1,6 +1,6 @@
 <h1>Meeting <%= @appointment.pet.name %></h1>
 
-<% if current_user.admin %>
+<% if current_user.admin && @appointment.user %>
   <h3>User: <%= link_to @appointment.user.full_name, user_path(@appointment.user) %></h3>
 <% end %>
 
@@ -12,5 +12,5 @@
   to adopt <%= @appointment.pet.name %>.</p>
 
 <div class="delete_link">
-  <%= link_to "Delete appointment", appointment_path(@appointment), method: 'delete' %>
+  <%= link_to "Cancel appointment", appointment_path(@appointment), method: 'delete' %>
 </div>
