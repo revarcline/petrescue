@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   def admin_toggle
     set_user
     if @user == current_user
-      flash[:notice] = "Can't remove own admin status"
+      flash[:notice] = "Can't revoke own admin status"
     elsif @user&.admin?
       @user.admin = false
       flash[:notice] = "#{@user.full_name} is no longer an admin"
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.destroy(params[:id])
-    flash[:notice] = "User deleted"
+    flash[:notice] = 'User deleted'
     redirect_to users_path
   end
 
