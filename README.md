@@ -1,24 +1,11 @@
-# README
+# petrescue
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+petrescue is a rails application for animal shelters or rescue organizations to schedule adoption appointments for pets. A working demo is available [here](https://revarcline-petrescue.herokuapp.com/).
 
-Things you may want to cover:
+The application uses ruby version 2.7.2, and all dependencies should be installed with `bundle install`.
 
-* Ruby version
+Currently it is configured for postgresql in all environments. Set up the database with `rails db:create; rails db:migrate; rails db:seed` from the project root.
 
-* System dependencies
+Within the seed data, there is a demo admin user available under the login `shelteradmin@example.com` with the password `gottapet`. It is recommended to delete this user for a deployment and set up a different admin user. If you do not wish to use the seed data, you can create an admin account using `rails console` by setting the `admin` attribute of a given `User` to true.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The application uses [devise](https://github.com/heartcombo/devise) to handle user registration and sessions, as well as google oauth. Currently, the email and password of an oauth user are not user-editable (oauth login does not require a password).
