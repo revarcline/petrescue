@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
   before_action :admin_only
-  skip_before_action :admin_only, only: %i[index show destroy]
+  skip_before_action :admin_only, only: %i[index show oldest]
   def index
     @pets = if params[:species]
               Pet.where(species: params[:species].capitalize.singularize)
