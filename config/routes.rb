@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[show index destroy]
   resources :appointments, only: %i[index destroy]
   root 'static#index'
-  get '/:species/', to: 'pets#index', as: 'species_index'
+  get '/oldest', to: 'pets#oldest', as: 'oldest'
+  get '/:species', to: 'pets#index', as: 'species_index'
   patch '/users/:id/admin', to: 'users#admin_toggle', as: 'user_admin_toggle'
 end
